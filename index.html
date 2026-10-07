@@ -429,25 +429,103 @@ const WA = '543704700739';
 const waLink = (text) => `https://wa.me/${WA}?text=${encodeURIComponent(text)}`;
 
 const IPHONES = [
-    { model: 'iPhone 18 Pro Max', color: 'Borgoña',   storage: '256GB', cond: 'nuevo', usd: 2035, img: 'iphone-18-pro-max.jpg' },
-    { model: 'iPhone 18 Pro Max', color: 'Negro',     storage: '256GB', cond: 'nuevo', usd: 1815, img: 'iphone-18-pro-max.jpg' },
-    { model: 'iPhone 18 Pro',     color: 'Azul Glaciar', storage: '256GB', cond: 'nuevo', usd: 1463, img: 'iphone-18-pro.jpg' },
-    { model: 'iPhone 17 Pro Max', color: 'Azul',      storage: '256GB', cond: 'nuevo', usd: 1370, img: 'iphone-17-pro-max.jpg' },
-    { model: 'iPhone 17 Pro Max', color: 'Plata',     storage: '256GB', cond: 'nuevo', usd: 1381, img: 'iphone-17-pro-max.jpg' },
-    { model: 'iPhone 17 Pro',     color: 'Azul',      storage: '256GB', cond: 'nuevo', usd: 1298, img: 'iphone-17-pro.jpg' },
-    { model: 'iPhone 17 Pro',     color: 'Naranja',   storage: '256GB', cond: 'nuevo', usd: 1298, img: 'iphone-17-pro.jpg' },
-    { model: 'iPhone 17 Pro',     color: 'Plata',     storage: '256GB', cond: 'nuevo', usd: 1304, img: 'iphone-17-pro.jpg' },
-    { model: 'iPhone 16',         color: 'Blanco',    storage: '128GB', cond: 'nuevo', usd: 864,  img: 'iphone-16.jpg' },
-    { model: 'iPhone 16',         color: 'Negro',     storage: '128GB', cond: 'nuevo', usd: 864,  img: 'iphone-16.jpg' },
-    { model: 'iPhone 15',         color: 'Azul',      storage: '128GB', cond: 'nuevo', usd: 743,  img: 'iphone-15.jpg' },
-    { model: 'iPhone 14',         color: 'Negro',     storage: '128GB', cond: 'nuevo', usd: 605,  img: 'iphone-14.jpg' },
-    { model: 'iPhone 14',         color: 'Amarillo',  storage: '128GB', cond: 'usado', usd: 352,  img: 'iphone-14.jpg' },
-    { model: 'iPhone 14',         color: 'Blanco',    storage: '128GB', cond: 'usado', usd: 352,  img: 'iphone-14.jpg' },
-    { model: 'iPhone 14',         color: 'Lila',      storage: '128GB', cond: 'usado', usd: 352,  img: 'iphone-14.jpg' },
-    { model: 'iPhone 13',         color: 'Azul',      storage: '128GB', cond: 'usado', usd: 314,  img: 'iphone-13.jpg' },
-    { model: 'iPhone 13',         color: 'Blanco',    storage: '128GB', cond: 'usado', usd: 314,  img: 'iphone-13.jpg' },
-    { model: 'iPhone 13',         color: 'Negro',     storage: '128GB', cond: 'usado', usd: 314,  img: 'iphone-13.jpg' },
-    { model: 'iPhone 13',         color: 'Rosa',      storage: '128GB', cond: 'usado', usd: 314,  img: 'iphone-13.jpg' },
+    { model: 'iPhone 13', storage: '128GB', color: 'Blanco', cond: 'nuevo', condLabel: 'Nuevo', usd: 566, img: 'iphone-13.jpg' },
+    { model: 'iPhone 13', storage: '128GB', color: 'Negro', cond: 'nuevo', condLabel: 'Nuevo', usd: 566, img: 'iphone-13.jpg' },
+    { model: 'iPhone 13', storage: '128GB', color: 'Rosa', cond: 'nuevo', condLabel: 'Nuevo', usd: 572, img: 'iphone-13.jpg' },
+    { model: 'iPhone 13', storage: '128GB', color: 'Azul', cond: 'usado', condLabel: 'Usado · SWAP', usd: 314, img: 'iphone-13.jpg' },
+    { model: 'iPhone 13', storage: '128GB', color: 'Blanco', cond: 'usado', condLabel: 'Usado · SWAP', usd: 314, img: 'iphone-13.jpg' },
+    { model: 'iPhone 13', storage: '128GB', color: 'Negro', cond: 'usado', condLabel: 'Usado · SWAP', usd: 314, img: 'iphone-13.jpg' },
+    { model: 'iPhone 13', storage: '128GB', color: 'Rosa', cond: 'usado', condLabel: 'Usado · SWAP', usd: 314, img: 'iphone-13.jpg' },
+    { model: 'iPhone 13', storage: '128GB', color: 'Verde', cond: 'usado', condLabel: 'Usado · SWAP', usd: 317, img: 'iphone-13.jpg' },
+    { model: 'iPhone 13', storage: '256GB', color: 'Negro', cond: 'cpo', condLabel: 'Reacondicionado (CPO)', usd: 550, img: 'iphone-13.jpg' },
+    { model: 'iPhone 13 Pro', storage: '128GB', color: 'Azul', cond: 'usado', condLabel: 'Usado · SWAP', usd: 429, img: 'iphone-13-pro.jpg' },
+    { model: 'iPhone 13 Pro', storage: '128GB', color: 'Dorado', cond: 'usado', condLabel: 'Usado · SWAP', usd: 429, img: 'iphone-13-pro.jpg' },
+    { model: 'iPhone 13 Pro', storage: '128GB', color: 'Negro', cond: 'usado', condLabel: 'Usado · SWAP', usd: 429, img: 'iphone-13-pro.jpg' },
+    { model: 'iPhone 13 Pro', storage: '128GB', color: 'Silver', cond: 'usado', condLabel: 'Usado · SWAP', usd: 429, img: 'iphone-13-pro.jpg' },
+    { model: 'iPhone 13 Pro', storage: '128GB', color: 'Verde', cond: 'usado', condLabel: 'Usado · SWAP', usd: 424, img: 'iphone-13-pro.jpg' },
+    { model: 'iPhone 13 Pro', storage: '256GB', color: 'Gris', cond: 'cpo', condLabel: 'Reacondicionado (CPO)', usd: 622, img: 'iphone-13-pro.jpg' },
+    { model: 'iPhone 13 Pro', storage: '256GB', color: 'Silver', cond: 'cpo', condLabel: 'Reacondicionado (CPO)', usd: 622, img: 'iphone-13-pro.jpg' },
+    { model: 'iPhone 13 Pro Max', storage: '128GB', color: 'Azul', cond: 'usado', condLabel: 'Usado · SWAP', usd: 473, img: 'iphone-13-pro-max.jpg' },
+    { model: 'iPhone 13 Pro Max', storage: '128GB', color: 'Dorado', cond: 'usado', condLabel: 'Usado · SWAP', usd: 473, img: 'iphone-13-pro-max.jpg' },
+    { model: 'iPhone 13 Pro Max', storage: '128GB', color: 'Negro', cond: 'usado', condLabel: 'Usado · SWAP', usd: 473, img: 'iphone-13-pro-max.jpg' },
+    { model: 'iPhone 13 Pro Max', storage: '128GB', color: 'Silver', cond: 'usado', condLabel: 'Usado · SWAP', usd: 473, img: 'iphone-13-pro-max.jpg' },
+    { model: 'iPhone 14', storage: '128GB', color: 'Negro', cond: 'nuevo', condLabel: 'Nuevo (sellado, activado)', usd: 605, img: 'iphone-14.jpg' },
+    { model: 'iPhone 14', storage: '128GB', color: 'Azul', cond: 'cpo', condLabel: 'Reacondicionado (CPO)', usd: 622, img: 'iphone-14.jpg' },
+    { model: 'iPhone 14', storage: '128GB', color: 'Blanco', cond: 'cpo', condLabel: 'Reacondicionado (CPO)', usd: 622, img: 'iphone-14.jpg' },
+    { model: 'iPhone 14', storage: '128GB', color: 'Negro', cond: 'cpo', condLabel: 'Reacondicionado (CPO)', usd: 622, img: 'iphone-14.jpg' },
+    { model: 'iPhone 14', storage: '128GB', color: 'Negro', cond: 'nuevo', condLabel: 'Nuevo', usd: 605, img: 'iphone-14.jpg' },
+    { model: 'iPhone 14', storage: '128GB', color: 'Amarillo', cond: 'usado', condLabel: 'Usado · SWAP', usd: 352, img: 'iphone-14.jpg' },
+    { model: 'iPhone 14', storage: '128GB', color: 'Azul', cond: 'usado', condLabel: 'Usado · SWAP', usd: 346, img: 'iphone-14.jpg' },
+    { model: 'iPhone 14', storage: '128GB', color: 'Blanco', cond: 'usado', condLabel: 'Usado · SWAP', usd: 352, img: 'iphone-14.jpg' },
+    { model: 'iPhone 14', storage: '128GB', color: 'Lila', cond: 'usado', condLabel: 'Usado · SWAP', usd: 352, img: 'iphone-14.jpg' },
+    { model: 'iPhone 14', storage: '128GB', color: 'Negro', cond: 'usado', condLabel: 'Usado · SWAP', usd: 352, img: 'iphone-14.jpg' },
+    { model: 'iPhone 14 Pro', storage: '128GB', color: 'Lila', cond: 'usado', condLabel: 'Usado · SWAP', usd: 517, img: 'iphone-14-pro.jpg' },
+    { model: 'iPhone 14 Pro', storage: '128GB', color: 'Silver', cond: 'usado', condLabel: 'Usado · SWAP', usd: 517, img: 'iphone-14-pro.jpg' },
+    { model: 'iPhone 14 Pro', storage: '256GB', color: 'Lila', cond: 'usado', condLabel: 'Usado · SWAP', usd: 534, img: 'iphone-14-pro.jpg' },
+    { model: 'iPhone 14 Pro', storage: '256GB', color: 'Negro', cond: 'usado', condLabel: 'Usado · SWAP', usd: 534, img: 'iphone-14-pro.jpg' },
+    { model: 'iPhone 14 Pro Max', storage: '128GB', color: 'Lila', cond: 'usado', condLabel: 'Usado · SWAP', usd: 610, img: 'iphone-14-pro-max.jpg' },
+    { model: 'iPhone 14 Pro Max', storage: '128GB', color: 'Negro', cond: 'usado', condLabel: 'Usado · SWAP', usd: 610, img: 'iphone-14-pro-max.jpg' },
+    { model: 'iPhone 15', storage: '128GB', color: 'Azul', cond: 'nuevo', condLabel: 'Nuevo', usd: 743, img: 'iphone-15.jpg' },
+    { model: 'iPhone 15', storage: '128GB', color: 'Negro', cond: 'nuevo', condLabel: 'Nuevo', usd: 743, img: 'iphone-15.jpg' },
+    { model: 'iPhone 15', storage: '128GB', color: 'Negro', cond: 'nuevo', condLabel: 'Nuevo (sellado, activado)', usd: 710, img: 'iphone-15.jpg' },
+    { model: 'iPhone 15', storage: '128GB', color: 'Amarillo', cond: 'usado', condLabel: 'Usado · SWAP', usd: 490, img: 'iphone-15.jpg' },
+    { model: 'iPhone 15', storage: '128GB', color: 'Azul', cond: 'usado', condLabel: 'Usado · SWAP', usd: 484, img: 'iphone-15.jpg' },
+    { model: 'iPhone 15', storage: '128GB', color: 'Negro', cond: 'usado', condLabel: 'Usado · SWAP', usd: 490, img: 'iphone-15.jpg' },
+    { model: 'iPhone 15', storage: '128GB', color: 'Rosa', cond: 'usado', condLabel: 'Usado · SWAP', usd: 490, img: 'iphone-15.jpg' },
+    { model: 'iPhone 15', storage: '128GB', color: 'Verde', cond: 'usado', condLabel: 'Usado · SWAP', usd: 484, img: 'iphone-15.jpg' },
+    { model: 'iPhone 15 Pro', storage: '128GB', color: 'Azul', cond: 'usado', condLabel: 'Usado · SWAP', usd: 624, img: 'iphone-15-pro.jpg' },
+    { model: 'iPhone 15 Pro', storage: '128GB', color: 'Silver', cond: 'usado', condLabel: 'Usado · SWAP', usd: 624, img: 'iphone-15-pro.jpg' },
+    { model: 'iPhone 15 Pro Max', storage: '256GB', color: 'Azul', cond: 'cpo', condLabel: 'Reacondicionado (CPO)', usd: 979, img: 'iphone-15-pro-max.jpg' },
+    { model: 'iPhone 15 Pro Max', storage: '256GB', color: 'Azul', cond: 'usado', condLabel: 'Usado · SWAP', usd: 754, img: 'iphone-15-pro-max.jpg' },
+    { model: 'iPhone 16', storage: '128GB', color: 'Azul', cond: 'nuevo', condLabel: 'Nuevo', usd: 847, img: 'iphone-16.jpg' },
+    { model: 'iPhone 16', storage: '128GB', color: 'Blanco', cond: 'nuevo', condLabel: 'Nuevo', usd: 864, img: 'iphone-16.jpg' },
+    { model: 'iPhone 16', storage: '128GB', color: 'Azul', cond: 'cpo', condLabel: 'Reacondicionado (CPO)', usd: 721, img: 'iphone-16.jpg' },
+    { model: 'iPhone 16', storage: '128GB', color: 'Verde', cond: 'cpo', condLabel: 'Reacondicionado (CPO)', usd: 726, img: 'iphone-16.jpg' },
+    { model: 'iPhone 16', storage: '128GB', color: 'Negro', cond: 'nuevo', condLabel: 'Nuevo', usd: 864, img: 'iphone-16.jpg' },
+    { model: 'iPhone 16', storage: '128GB', color: 'Rosa', cond: 'nuevo', condLabel: 'Nuevo', usd: 842, img: 'iphone-16.jpg' },
+    { model: 'iPhone 16', storage: '128GB', color: 'Blanco', cond: 'usado', condLabel: 'Semi nuevo', usd: 759, img: 'iphone-16.jpg' },
+    { model: 'iPhone 16', storage: '128GB', color: 'Verde', cond: 'nuevo', condLabel: 'Nuevo', usd: 847, img: 'iphone-16.jpg' },
+    { model: 'iPhone 16', storage: '256GB', color: 'Blanco', cond: 'cpo', condLabel: 'Reacondicionado (CPO)', usd: 814, img: 'iphone-16.jpg' },
+    { model: 'iPhone 16', storage: '256GB', color: 'Negro', cond: 'cpo', condLabel: 'Reacondicionado (CPO)', usd: 814, img: 'iphone-16.jpg' },
+    { model: 'iPhone 16 Pro', storage: '128GB', color: 'Negro', cond: 'cpo', condLabel: 'Reacondicionado (CPO)', usd: 957, img: 'iphone-16-pro.jpg' },
+    { model: 'iPhone 16 Pro', storage: '128GB', color: 'Desert', cond: 'nuevo', condLabel: 'Nuevo', usd: 1012, img: 'iphone-16-pro.jpg' },
+    { model: 'iPhone 16 Pro', storage: '128GB', color: '—', cond: 'usado', condLabel: 'Usado', usd: 880, img: 'iphone-16-pro.jpg' },
+    { model: 'iPhone 16 Pro', storage: '256GB', color: 'Blanco', cond: 'cpo', condLabel: 'Reacondicionado (CPO)', usd: 990, img: 'iphone-16-pro.jpg' },
+    { model: 'iPhone 16 Pro', storage: '256GB', color: 'Desert Titanium', cond: 'nuevo', condLabel: 'Nuevo', usd: 1078, img: 'iphone-16-pro.jpg' },
+    { model: 'iPhone 16 Pro Max', storage: '256GB', color: '—', cond: 'usado', condLabel: 'Usado', usd: 957, img: 'iphone-16-pro-max.jpg' },
+    { model: 'iPhone 16 Pro Max', storage: '8/256GB', color: 'Blanco', cond: 'nuevo', condLabel: 'Nuevo', usd: 1210, img: 'iphone-16-pro-max.jpg' },
+    { model: 'iPhone 16 Pro Max', storage: '8/256GB', color: 'Titanio Natural', cond: 'nuevo', condLabel: 'Nuevo', usd: 1210, img: 'iphone-16-pro-max.jpg' },
+    { model: 'iPhone 16e', storage: '128GB', color: 'Negro', cond: 'nuevo', condLabel: 'Nuevo', usd: 572, img: 'iphone-16e.jpg' },
+    { model: 'iPhone 17', storage: '256GB', color: 'Azul', cond: 'nuevo', condLabel: 'Nuevo', usd: 1018, img: 'iphone-17.jpg' },
+    { model: 'iPhone 17', storage: '256GB', color: 'Blanco', cond: 'nuevo', condLabel: 'Nuevo', usd: 1023, img: 'iphone-17.jpg' },
+    { model: 'iPhone 17', storage: '256GB', color: 'Lavanda', cond: 'nuevo', condLabel: 'Nuevo', usd: 990, img: 'iphone-17.jpg' },
+    { model: 'iPhone 17', storage: '256GB', color: 'Negro', cond: 'nuevo', condLabel: 'Nuevo', usd: 1018, img: 'iphone-17.jpg' },
+    { model: 'iPhone 17', storage: '256GB', color: 'Verde', cond: 'nuevo', condLabel: 'Nuevo', usd: 1012, img: 'iphone-17.jpg' },
+    { model: 'iPhone 17 Pro', storage: '256GB', color: 'Azul', cond: 'nuevo', condLabel: 'Nuevo', usd: 1298, img: 'iphone-17-pro.jpg' },
+    { model: 'iPhone 17 Pro', storage: '256GB', color: 'Naranja', cond: 'nuevo', condLabel: 'Nuevo', usd: 1298, img: 'iphone-17-pro.jpg' },
+    { model: 'iPhone 17 Pro', storage: '256GB', color: 'Silver', cond: 'nuevo', condLabel: 'Nuevo', usd: 1304, img: 'iphone-17-pro.jpg' },
+    { model: 'iPhone 17 Pro', storage: '512GB', color: 'Azul', cond: 'nuevo', condLabel: 'Nuevo', usd: 1650, img: 'iphone-17-pro.jpg' },
+    { model: 'iPhone 17 Pro', storage: '512GB', color: 'Naranja', cond: 'nuevo', condLabel: 'Nuevo', usd: 1551, img: 'iphone-17-pro.jpg' },
+    { model: 'iPhone 17 Pro', storage: '512GB', color: '—', cond: 'usado', condLabel: 'Usado', usd: 1100, img: 'iphone-17-pro.jpg' },
+    { model: 'iPhone 17 Pro Max', storage: '1TB', color: 'Naranja', cond: 'nuevo', condLabel: 'Nuevo', usd: 1925, img: 'iphone-17-pro-max.jpg' },
+    { model: 'iPhone 17 Pro Max', storage: '256GB', color: 'Azul', cond: 'nuevo', condLabel: 'Nuevo', usd: 1370, img: 'iphone-17-pro-max.jpg' },
+    { model: 'iPhone 17 Pro Max', storage: '256GB', color: 'Naranja', cond: 'nuevo', condLabel: 'Nuevo', usd: 1370, img: 'iphone-17-pro-max.jpg' },
+    { model: 'iPhone 17 Pro Max', storage: '256GB', color: 'Naranja', cond: 'usado', condLabel: 'Semi nuevo', usd: 1210, img: 'iphone-17-pro-max.jpg' },
+    { model: 'iPhone 17 Pro Max', storage: '256GB', color: 'Silver', cond: 'nuevo', condLabel: 'Nuevo', usd: 1380, img: 'iphone-17-pro-max.jpg' },
+    { model: 'iPhone 17 Pro Max', storage: '512GB', color: 'Silver', cond: 'nuevo', condLabel: 'Nuevo', usd: 1727, img: 'iphone-17-pro-max.jpg' },
+    { model: 'iPhone 17e', storage: '256GB', color: 'Negro', cond: 'nuevo', condLabel: 'Nuevo', usd: 654, img: 'iphone-17e.jpg' },
+    { model: 'iPhone 18 Pro', storage: '256GB', color: 'Azul Glaciar', cond: 'nuevo', condLabel: 'Nuevo', usd: 1463, img: 'iphone-18-pro.jpg' },
+    { model: 'iPhone 18 Pro', storage: '256GB', color: 'Borgoña', cond: 'nuevo', condLabel: 'Nuevo', usd: 1628, img: 'iphone-18-pro.jpg' },
+    { model: 'iPhone 18 Pro', storage: '256GB', color: 'Negro', cond: 'nuevo', condLabel: 'Nuevo', usd: 1562, img: 'iphone-18-pro.jpg' },
+    { model: 'iPhone 18 Pro', storage: '256GB', color: 'Silver', cond: 'nuevo', condLabel: 'Nuevo', usd: 1463, img: 'iphone-18-pro.jpg' },
+    { model: 'iPhone 18 Pro Max', storage: '1TB', color: 'Borgoña', cond: 'nuevo', condLabel: 'Nuevo', usd: 2965, img: 'iphone-18-pro-max.jpg' },
+    { model: 'iPhone 18 Pro Max', storage: '1TB', color: 'Negro', cond: 'nuevo', condLabel: 'Nuevo', usd: 2860, img: 'iphone-18-pro-max.jpg' },
+    { model: 'iPhone 18 Pro Max', storage: '256GB', color: 'Azul Glaciar', cond: 'nuevo', condLabel: 'Nuevo', usd: 2057, img: 'iphone-18-pro-max.jpg' },
+    { model: 'iPhone 18 Pro Max', storage: '256GB', color: 'Borgoña', cond: 'nuevo', condLabel: 'Nuevo', usd: 2035, img: 'iphone-18-pro-max.jpg' },
+    { model: 'iPhone 18 Pro Max', storage: '256GB', color: 'Negro', cond: 'nuevo', condLabel: 'Nuevo', usd: 1815, img: 'iphone-18-pro-max.jpg' },
+    { model: 'iPhone 18 Pro Max', storage: '256GB', color: 'Silver', cond: 'nuevo', condLabel: 'Nuevo', usd: 1815, img: 'iphone-18-pro-max.jpg' },
+    { model: 'iPhone 18 Pro Max', storage: '512GB', color: 'Azul Glaciar', cond: 'nuevo', condLabel: 'Nuevo', usd: 2255, img: 'iphone-18-pro-max.jpg' },
+    { model: 'iPhone 18 Pro Max', storage: '512GB', color: 'Negro', cond: 'nuevo', condLabel: 'Nuevo', usd: 2035, img: 'iphone-18-pro-max.jpg' },
 ];
 
 function money(n) { return n.toLocaleString('es-AR'); }
@@ -458,14 +536,18 @@ function renderIphones(list) {
     if (!list.length) { grid.innerHTML = ''; noResults.hidden = false; return; }
     noResults.hidden = true;
     grid.innerHTML = list.map(p => {
-        const label = p.cond === 'usado' ? 'Usado · SWAP' : 'Nuevo';
-        const fullName = `${p.model} ${p.color}`;
-        const waText = `Hola CEDETEC, quiero comprar el ${p.model} ${p.storage} ${p.color}${p.cond === 'usado' ? ' (usado, SWAP)' : ''} (USD ${money(p.usd)})`;
+        const fullName = p.color === '—' ? p.model : `${p.model} ${p.color}`;
+        const specLine = [p.storage, p.color !== '—' ? p.color : '', p.cond !== 'nuevo' ? p.condLabel : '']
+            .filter(Boolean).join(' · ');
+        const waParts = [p.model, p.storage];
+        if (p.color !== '—') waParts.push(p.color);
+        if (p.cond !== 'nuevo') waParts.push(`(${p.condLabel})`);
+        const waText = `Hola CEDETEC, quiero comprar el ${waParts.join(' ')} (USD ${money(p.usd)})`;
         return `
         <article class="cat-card">
-            <div class="ph"><span class="cond ${p.cond === 'usado' ? 'usado' : ''}">${label}</span><img src="img/${p.img}" alt="${fullName}" loading="lazy"></div>
+            <div class="ph"><span class="cond ${p.cond !== 'nuevo' ? 'usado' : ''}">${p.condLabel}</span><img src="img/${p.img}" alt="${fullName}" loading="lazy"></div>
             <h3>${p.model}</h3>
-            <p class="tag">${p.storage} · ${p.color}${p.cond === 'usado' ? ' · Usado (SWAP)' : ''}</p>
+            <p class="tag">${specLine}</p>
             <div class="price">USD ${money(p.usd)}</div>
             <div class="cat-actions">
                 <a class="btn btn-blue" href="${waLink(waText)}" target="_blank" rel="noopener">Comprar</a>
@@ -482,7 +564,7 @@ searchInput.addEventListener('input', () => {
     if (!q) { renderIphones(IPHONES); return; }
     const words = q.split(/\s+/).filter(Boolean);
     const filtered = IPHONES.filter(p => {
-        const haystack = normalize(`${p.model} ${p.color} ${p.storage} ${p.cond === 'usado' ? 'usado swap' : 'nuevo'}`);
+        const haystack = normalize(`${p.model} ${p.color} ${p.storage} ${p.condLabel} ${p.cond}`);
         return words.every(w => haystack.includes(w));
     });
     renderIphones(filtered);
