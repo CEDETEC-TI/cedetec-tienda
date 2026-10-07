@@ -11,9 +11,9 @@ CEDETEC revende productos Apple originales como revendedor independiente. **No e
 Sitio estático de un solo archivo (`index.html`, sin dependencias de build ni backend), con estética inspirada en apple.com:
 
 - Portada con el iPhone 18 Pro como protagonista, nav flotante traslúcida y tipografía del sistema (-apple-system).
-- Catálogo de **iPhone** (18 Pro, Air, 17 y 16), sección de **Mac** (MacBook Air y MacBook Pro, en beats a pantalla completa como los de apple.com) y grilla de **AirPods y accesorios** (AirPods Pro 3, cargador MagSafe, adaptador 20W, cable USB-C y funda transparente con MagSafe).
+- Catálogo de **iPhone** (18 Pro, 17 Pro, 16 y 15), sección de **Mac** (MacBook Air y MacBook Pro, en beats a pantalla completa como los de apple.com) y grilla de **AirPods y accesorios** (AirPods Pro 3, cargador MagSafe, adaptador 20W, cable USB-C y funda transparente con MagSafe).
 - Todas las fotos son reales, tomadas de las páginas e imágenes oficiales de apple.com (CDN `store.storeimages.cdn-apple.com`) y del newsroom de Apple, recortadas para que el producto llene el cuadro y verificadas una por una antes de publicar.
-- Precios: se muestra el precio de lista oficial en USD de Apple EE.UU. como referencia, y se invita a consultar el precio final en pesos por WhatsApp (varía por importación y tipo de cambio). No se inventaron precios en pesos.
+- **Precios de iPhone**: se calculan tomando el precio en USD del proveedor real de CEDETEC ([vencellalberdi.com](https://vencellalberdi.com)) para el modelo y color que efectivamente tiene en stock, más 10%. El precio que se muestra en cada tarjeta es el final, lo que paga el cliente — no hay que consultar nada aparte. Los 4 modelos elegidos son los que el proveedor tenía en stock al momento de armar la página (no necesariamente los 4 más nuevos de Apple, porque algunos modelos actuales del proveedor están agotados). Los precios de Mac y accesorios siguen mostrando el precio de lista oficial de Apple EE.UU. como referencia, porque el proveedor no los tiene en su catálogo.
 - Franja de confianza (productos originales, garantía oficial, entrega en Formosa, asesoramiento) y sección de contacto con WhatsApp e Instagram reales de CEDETEC.
 
 ## Deploy
