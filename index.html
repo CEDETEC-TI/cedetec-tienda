@@ -109,8 +109,10 @@
     .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 46px; text-align: left; }
     .cat-card { background: #fff; border-radius: 22px; padding: 26px 22px 24px; display: flex; flex-direction: column; transition: box-shadow .25s ease, transform .25s ease; }
     .cat-card:hover { box-shadow: 0 20px 40px rgba(0,0,0,.08); transform: translateY(-3px); }
-    .cat-card .ph { aspect-ratio: 1/1; border-radius: 16px; overflow: hidden; background: var(--paper); margin-bottom: 18px; }
+    .cat-card .ph { aspect-ratio: 1/1; border-radius: 16px; overflow: hidden; background: var(--paper); margin-bottom: 18px; position: relative; }
     .cat-card .ph img { width: 100%; height: 100%; object-fit: cover; }
+    .cat-card .cond { position: absolute; top: 10px; left: 10px; font-size: .68rem; font-weight: 700; letter-spacing: .3px; padding: 4px 10px; border-radius: 980px; background: rgba(255,255,255,.95); color: var(--ink); }
+    .cat-card .cond.usado { background: #fff4e0; color: #9a5b00; }
     .cat-card h3 { font-size: 1.12rem; margin-bottom: 3px; }
     .cat-card .tag { font-size: .84rem; color: var(--soft); margin-bottom: 12px; min-height: 2.4em; }
     .cat-card .price { font-size: .96rem; font-weight: 600; margin-bottom: 4px; }
@@ -128,6 +130,7 @@
     .acc-card h3 { font-size: .96rem; margin-bottom: 2px; }
     .acc-card .tag { font-size: .76rem; color: var(--soft); margin-bottom: 10px; min-height: 2.2em; }
     .acc-card .price { font-size: .88rem; font-weight: 600; margin-bottom: 12px; }
+    .acc-card .price.muted { color: var(--faint); font-weight: 500; }
     .acc-card .btn { width: 100%; font-size: .78rem; padding: 8px 12px; margin-top: auto; }
 
     /* ---------- CONFIANZA STRIP ---------- */
@@ -232,9 +235,9 @@
 <!-- QUICK NAV -->
 <section class="quicknav">
     <div class="wrap">
-        <a href="#iphone" class="qn-card"><span data-icon="iphone" data-size="30"></span><h3>iPhone</h3><p>Desde USD 743</p></a>
-        <a href="#mac" class="qn-card"><span data-icon="mac" data-size="30"></span><h3>Mac</h3><p>Desde USD 1.099</p></a>
-        <a href="#accesorios" class="qn-card"><span data-icon="airpods" data-size="30"></span><h3>AirPods</h3><p>Desde USD 249</p></a>
+        <a href="#iphone" class="qn-card"><span data-icon="iphone" data-size="30"></span><h3>iPhone</h3><p>Desde USD 314</p></a>
+        <a href="#mac" class="qn-card"><span data-icon="mac" data-size="30"></span><h3>Mac</h3><p>Consultar precio</p></a>
+        <a href="#accesorios" class="qn-card"><span data-icon="airpods" data-size="30"></span><h3>AirPods</h3><p>Consultar precio</p></a>
         <a href="#accesorios" class="qn-card"><span data-icon="plug" data-size="30"></span><h3>Accesorios</h3><p>Cables y cargadores</p></a>
     </div>
 </section>
@@ -245,12 +248,12 @@
         <div class="beat-head">
             <p class="eyebrow">iPhone</p>
             <h2>Elegí tu iPhone.</h2>
-            <p class="sub">Los modelos que tenemos en stock, con el precio final ya calculado.</p>
+            <p class="sub">Nuevos y usados verificados, todo lo que tenemos en stock, con el precio final ya calculado.</p>
         </div>
 
         <div class="cat-grid">
             <article class="cat-card">
-                <div class="ph"><img src="img/iphone-18-pro.jpg" alt="iPhone 18 Pro" loading="lazy"></div>
+                <div class="ph"><span class="cond">Nuevo</span><img src="img/iphone-18-pro.jpg" alt="iPhone 18 Pro" loading="lazy"></div>
                 <h3>iPhone 18 Pro</h3>
                 <p class="tag">256GB · Azul Glaciar. El más potente, cámara Pro.</p>
                 <div class="price">USD 1.463</div>
@@ -259,7 +262,16 @@
                 </div>
             </article>
             <article class="cat-card">
-                <div class="ph"><img src="img/iphone-17-pro.jpg" alt="iPhone 17 Pro" loading="lazy"></div>
+                <div class="ph"><span class="cond">Nuevo</span><img src="img/iphone-18-pro-max.jpg" alt="iPhone 18 Pro Max" loading="lazy"></div>
+                <h3>iPhone 18 Pro Max</h3>
+                <p class="tag">256GB · Negro. Pantalla más grande, más batería.</p>
+                <div class="price">USD 1.815</div>
+                <div class="cat-actions">
+                    <a class="btn btn-blue" href="https://wa.me/543704700739?text=Hola%20CEDETEC%2C%20quiero%20comprar%20el%20iPhone%2018%20Pro%20Max%20256GB%20(USD%201.815)" target="_blank" rel="noopener">Comprar</a>
+                </div>
+            </article>
+            <article class="cat-card">
+                <div class="ph"><span class="cond">Nuevo</span><img src="img/iphone-17-pro.jpg" alt="iPhone 17 Pro" loading="lazy"></div>
                 <h3>iPhone 17 Pro</h3>
                 <p class="tag">256GB · Naranja. Gran autonomía y zoom óptico.</p>
                 <div class="price">USD 1.298</div>
@@ -268,7 +280,16 @@
                 </div>
             </article>
             <article class="cat-card">
-                <div class="ph"><img src="img/iphone-16.jpg" alt="iPhone 16" loading="lazy"></div>
+                <div class="ph"><span class="cond">Nuevo</span><img src="img/iphone-17-pro-max.jpg" alt="iPhone 17 Pro Max" loading="lazy"></div>
+                <h3>iPhone 17 Pro Max</h3>
+                <p class="tag">256GB · Azul. La pantalla más grande de la línea Pro.</p>
+                <div class="price">USD 1.370</div>
+                <div class="cat-actions">
+                    <a class="btn btn-blue" href="https://wa.me/543704700739?text=Hola%20CEDETEC%2C%20quiero%20comprar%20el%20iPhone%2017%20Pro%20Max%20256GB%20(USD%201.370)" target="_blank" rel="noopener">Comprar</a>
+                </div>
+            </article>
+            <article class="cat-card">
+                <div class="ph"><span class="cond">Nuevo</span><img src="img/iphone-16.jpg" alt="iPhone 16" loading="lazy"></div>
                 <h3>iPhone 16</h3>
                 <p class="tag">128GB. El preferido, a un precio más accesible.</p>
                 <div class="price">USD 864</div>
@@ -277,15 +298,43 @@
                 </div>
             </article>
             <article class="cat-card">
-                <div class="ph"><img src="img/iphone-15.jpg" alt="iPhone 15" loading="lazy"></div>
+                <div class="ph"><span class="cond">Nuevo</span><img src="img/iphone-15.jpg" alt="iPhone 15" loading="lazy"></div>
                 <h3>iPhone 15</h3>
-                <p class="tag">128GB. La opción más accesible para entrar a iPhone.</p>
+                <p class="tag">128GB. Buena cámara a un precio más bajo.</p>
                 <div class="price">USD 743</div>
                 <div class="cat-actions">
                     <a class="btn btn-blue" href="https://wa.me/543704700739?text=Hola%20CEDETEC%2C%20quiero%20comprar%20el%20iPhone%2015%20128GB%20(USD%20743)" target="_blank" rel="noopener">Comprar</a>
                 </div>
             </article>
+            <article class="cat-card">
+                <div class="ph"><span class="cond">Nuevo</span><img src="img/iphone-14.jpg" alt="iPhone 14" loading="lazy"></div>
+                <h3>iPhone 14</h3>
+                <p class="tag">128GB. La opción más accesible entre los nuevos.</p>
+                <div class="price">USD 605</div>
+                <div class="cat-actions">
+                    <a class="btn btn-blue" href="https://wa.me/543704700739?text=Hola%20CEDETEC%2C%20quiero%20comprar%20el%20iPhone%2014%20128GB%20(USD%20605)" target="_blank" rel="noopener">Comprar</a>
+                </div>
+            </article>
+            <article class="cat-card">
+                <div class="ph"><span class="cond usado">Usado · SWAP</span><img src="img/iphone-14.jpg" alt="iPhone 14 usado" loading="lazy"></div>
+                <h3>iPhone 14</h3>
+                <p class="tag">128GB, usado (SWAP). Revisado, a precio más bajo.</p>
+                <div class="price">USD 352</div>
+                <div class="cat-actions">
+                    <a class="btn btn-blue" href="https://wa.me/543704700739?text=Hola%20CEDETEC%2C%20quiero%20comprar%20el%20iPhone%2014%20128GB%20usado%20(USD%20352)" target="_blank" rel="noopener">Comprar</a>
+                </div>
+            </article>
+            <article class="cat-card">
+                <div class="ph"><span class="cond usado">Usado · SWAP</span><img src="img/iphone-13.jpg" alt="iPhone 13 usado" loading="lazy"></div>
+                <h3>iPhone 13</h3>
+                <p class="tag">128GB, usado (SWAP). La entrada más económica a iPhone.</p>
+                <div class="price">USD 314</div>
+                <div class="cat-actions">
+                    <a class="btn btn-blue" href="https://wa.me/543704700739?text=Hola%20CEDETEC%2C%20quiero%20comprar%20el%20iPhone%2013%20128GB%20usado%20(USD%20314)" target="_blank" rel="noopener">Comprar</a>
+                </div>
+            </article>
         </div>
+        <p class="note" style="margin-top:28px; font-size:.84rem; color:var(--faint)">"Usado (SWAP)" significa que el equipo funciona perfecto pero puede tener alguna pieza reemplazada (pantalla, tapa o batería) durante una reparación anterior. Te lo aclaramos siempre antes de la compra.</p>
     </div>
 </section>
 
@@ -295,9 +344,9 @@
         <div class="beat-head">
             <p class="eyebrow on-dark">MacBook Air</p>
             <h2>Súper liviana.<br>Súper rápida.</h2>
-            <p class="sub">Con el chip M5. Desde USD 1.099.</p>
+            <p class="sub">Con el chip M5. Consultanos el precio.</p>
             <div class="beat-actions">
-                <a href="https://wa.me/543704700739?text=Hola%20CEDETEC%2C%20quiero%20comprar%20una%20MacBook%20Air" target="_blank" class="btn btn-outline-dark">Comprar</a>
+                <a href="https://wa.me/543704700739?text=Hola%20CEDETEC%2C%20quiero%20consultar%20precio%20de%20una%20MacBook%20Air" target="_blank" class="btn btn-outline-dark">Consultar</a>
             </div>
         </div>
         <div class="beat-img"><img src="img/macbook-air.jpg" alt="MacBook Air abierta, vista desde arriba y desde abajo"></div>
@@ -309,9 +358,9 @@
         <div class="beat-head">
             <p class="eyebrow">MacBook Pro</p>
             <h2>Potencia para<br>trabajo profesional.</h2>
-            <p class="sub">Chip M5. Desde USD 1.999.</p>
+            <p class="sub">Chip M5. Consultanos el precio.</p>
             <div class="beat-actions">
-                <a href="https://wa.me/543704700739?text=Hola%20CEDETEC%2C%20quiero%20comprar%20una%20MacBook%20Pro" target="_blank" class="btn btn-blue">Comprar</a>
+                <a href="https://wa.me/543704700739?text=Hola%20CEDETEC%2C%20quiero%20consultar%20precio%20de%20una%20MacBook%20Pro" target="_blank" class="btn btn-blue">Consultar</a>
             </div>
         </div>
         <div class="beat-img"><img src="img/macbook-pro.jpg" alt="MacBook Pro en Space Black, abierta"></div>
@@ -332,36 +381,36 @@
                 <div class="ph"><img src="img/airpods-pro.jpg" alt="AirPods Pro 3" loading="lazy"></div>
                 <h3>AirPods Pro 3</h3>
                 <p class="tag">Cancelación de ruido y audio adaptativo.</p>
-                <div class="price">USD 249</div>
-                <a class="btn btn-outline-light" href="https://wa.me/543704700739?text=Hola%20CEDETEC%2C%20quiero%20comprar%20los%20AirPods%20Pro%203" target="_blank" rel="noopener">Comprar</a>
+                <div class="price muted">Consultar precio</div>
+                <a class="btn btn-outline-light" href="https://wa.me/543704700739?text=Hola%20CEDETEC%2C%20quiero%20consultar%20precio%20de%20los%20AirPods%20Pro%203" target="_blank" rel="noopener">Consultar</a>
             </article>
             <article class="acc-card">
                 <div class="ph"><img src="img/magsafe-charger.jpg" alt="Cargador MagSafe" loading="lazy"></div>
                 <h3>Cargador MagSafe</h3>
                 <p class="tag">Carga inalámbrica rápida y prolija.</p>
-                <div class="price">USD 39</div>
-                <a class="btn btn-outline-light" href="https://wa.me/543704700739?text=Hola%20CEDETEC%2C%20quiero%20comprar%20un%20Cargador%20MagSafe" target="_blank" rel="noopener">Comprar</a>
+                <div class="price muted">Consultar precio</div>
+                <a class="btn btn-outline-light" href="https://wa.me/543704700739?text=Hola%20CEDETEC%2C%20quiero%20consultar%20precio%20de%20un%20Cargador%20MagSafe" target="_blank" rel="noopener">Consultar</a>
             </article>
             <article class="acc-card">
                 <div class="ph"><img src="img/power-adapter.jpg" alt="Adaptador de corriente USB-C 20W" loading="lazy"></div>
                 <h3>Adaptador 20W</h3>
                 <p class="tag">Carga rápida por USB-C.</p>
-                <div class="price">USD 19</div>
-                <a class="btn btn-outline-light" href="https://wa.me/543704700739?text=Hola%20CEDETEC%2C%20quiero%20comprar%20un%20Adaptador%20USB-C%2020W" target="_blank" rel="noopener">Comprar</a>
+                <div class="price muted">Consultar precio</div>
+                <a class="btn btn-outline-light" href="https://wa.me/543704700739?text=Hola%20CEDETEC%2C%20quiero%20consultar%20precio%20de%20un%20Adaptador%20USB-C%2020W" target="_blank" rel="noopener">Consultar</a>
             </article>
             <article class="acc-card">
                 <div class="ph"><img src="img/usb-cable.jpg" alt="Cable USB-C a USB-C de 1 metro" loading="lazy"></div>
                 <h3>Cable USB-C (1m)</h3>
                 <p class="tag">Para cargar y transferir datos.</p>
-                <div class="price">USD 19</div>
-                <a class="btn btn-outline-light" href="https://wa.me/543704700739?text=Hola%20CEDETEC%2C%20quiero%20comprar%20un%20Cable%20USB-C" target="_blank" rel="noopener">Comprar</a>
+                <div class="price muted">Consultar precio</div>
+                <a class="btn btn-outline-light" href="https://wa.me/543704700739?text=Hola%20CEDETEC%2C%20quiero%20consultar%20precio%20de%20un%20Cable%20USB-C" target="_blank" rel="noopener">Consultar</a>
             </article>
             <article class="acc-card">
                 <div class="ph"><img src="img/case-clear.jpg" alt="Funda transparente con MagSafe" loading="lazy"></div>
                 <h3>Funda transparente</h3>
                 <p class="tag">Con MagSafe, se ve el color original.</p>
-                <div class="price">USD 49</div>
-                <a class="btn btn-outline-light" href="https://wa.me/543704700739?text=Hola%20CEDETEC%2C%20quiero%20comprar%20una%20Funda%20transparente%20con%20MagSafe" target="_blank" rel="noopener">Comprar</a>
+                <div class="price muted">Consultar precio</div>
+                <a class="btn btn-outline-light" href="https://wa.me/543704700739?text=Hola%20CEDETEC%2C%20quiero%20consultar%20precio%20de%20una%20Funda%20transparente%20con%20MagSafe" target="_blank" rel="noopener">Consultar</a>
             </article>
         </div>
     </div>
@@ -371,8 +420,8 @@
 <section class="trust">
     <div class="wrap">
         <div class="trust-grid">
-            <div class="trust-item"><span data-icon="check" data-size="26"></span><h4>Productos originales</h4><p>Todo lo que vendemos es Apple genuino, con caja sellada.</p></div>
-            <div class="trust-item"><span data-icon="shield" data-size="26"></span><h4>Garantía oficial</h4><p>Garantía internacional de Apple en todos los equipos.</p></div>
+            <div class="trust-item"><span data-icon="check" data-size="26"></span><h4>Productos originales</h4><p>Todo lo que vendemos es Apple genuino, nuevo o usado y revisado.</p></div>
+            <div class="trust-item"><span data-icon="shield" data-size="26"></span><h4>Equipos revisados</h4><p>Te aclaramos siempre si el equipo es nuevo o usado, antes de comprar.</p></div>
             <div class="trust-item"><span data-icon="store" data-size="26"></span><h4>Entrega en Formosa</h4><p>Coordinamos la entrega con vos en Formosa Capital.</p></div>
             <div class="trust-item"><span data-icon="chat" data-size="26"></span><h4>Asesoramiento real</h4><p>Te ayudamos a elegir el equipo que necesitás, sin apuro.</p></div>
         </div>
