@@ -1,0 +1,6 @@
+remote: Internal Server Error        
+remote: Request ID C764:2E5D81:244795:2C3A0A:6AC6612A        
+remote: Time 2026-10-07T15:11:39Z
+To https://github.com/CEDETEC-TI/cedetec-tienda.git
+ ! [remote rejected] main -> main (Internal Server Error)
+error: failed to push some refs to 'https://github.com/CEDETEC-TI/cedetec-tienda.git'
