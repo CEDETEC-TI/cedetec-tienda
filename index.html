@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOVA — iPhone, Mac y accesorios en Formosa</title>
+<meta name="description" content="NOVA, tienda de tecnología en Formosa Capital. iPhone, Mac, AirPods y accesorios originales, con asesoramiento y entrega local.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231d1d1f'/><text x='16' y='22' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='16' fill='white'>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+        --ink: #1d1d1f;
+        --soft: #6e6e73;
+        --faint: #86868b;
+        --line: rgba(0,0,0,0.08);
+        --line-dark: rgba(255,255,255,0.14);
+        --paper: #f5f5f7;
+        --blue: #0071e3;
+        --blue-dark: #0077ed;
+        --black: #000000;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Segoe UI', sans-serif;
+        color: var(--ink); background: #fff; line-height: 1.47; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
+    button { font-family: inherit; }
+    section[id] { scroll-margin-top: 48px; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 22px; }
+
+    h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.015em; line-height: 1.07; }
+    .eyebrow { font-size: 0.95rem; font-weight: 600; color: var(--soft); margin-bottom: 6px; }
+    .eyebrow.on-dark { color: var(--faint); }
+
+    .link { display: inline-flex; align-items: center; gap: 3px; color: var(--blue); font-size: 1.05rem; font-weight: 400; }
+    .link::after { content: "›"; font-size: 1.15em; transition: transform .2s ease; }
+    .link:hover::after { transform: translateX(2px); }
+    .link:hover { color: var(--blue-dark); }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 11px 20px; border-radius: 980px; font-size: 0.98rem; font-weight: 400; cursor: pointer; border: 1px solid transparent; transition: all .2s ease; }
+    .btn-blue { background: var(--blue); color: #fff; }
+    .btn-blue:hover { background: var(--blue-dark); }
+    .btn-wa { background: #25D366; color: #fff; }
+    .btn-wa:hover { background: #1fb355; }
+    .btn-outline-dark { border-color: rgba(255,255,255,.55); color: #fff; }
+    .btn-outline-dark:hover { border-color: #fff; background: rgba(255,255,255,.08); }
+    .btn-outline-light { border-color: rgba(0,0,0,.2); color: var(--ink); }
+    .btn-outline-light:hover { border-color: var(--ink); }
+
+    /* ---------- NAV ---------- */
+    header { position: sticky; top: 0; z-index: 500; height: 48px; background: rgba(255,255,255,.8); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--line); }
+    nav.wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; max-width: 1060px; }
+    .logo { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+    .nav-links { display: flex; gap: 30px; align-items: center; }
+    .nav-links a:not(.nav-cta) { font-size: .8rem; font-weight: 400; color: var(--ink); }
+    .nav-links a:not(.nav-cta):hover { opacity: .6; }
+    .nav-cta { display: flex; align-items: center; gap: 6px; font-size: .8rem; background: var(--ink); color: #fff; padding: 6px 13px; border-radius: 980px; }
+    .nav-cta:hover { background: #000; }
+    .burger { display: none; width: 38px; height: 38px; background: none; border: 0; cursor: pointer; position: relative; }
+    .burger span { position: absolute; left: 9px; right: 9px; height: 1.4px; background: var(--ink); transition: transform .3s ease, top .3s ease; }
+    .burger span:nth-child(1) { top: 15px; } .burger span:nth-child(2) { top: 21px; }
+    .burger.active span:nth-child(1) { top: 18px; transform: rotate(45deg); }
+    .burger.active span:nth-child(2) { top: 18px; transform: rotate(-45deg); }
+    .mobile-menu { position: fixed; inset: 48px 0 0 0; z-index: 480; background: rgba(255,255,255,.98); backdrop-filter: blur(20px); padding: 10px 24px 30px; display: flex; flex-direction: column; opacity: 0; pointer-events: none; transition: opacity .25s ease; overflow-y: auto; }
+    .mobile-menu.open { opacity: 1; pointer-events: auto; }
+    .mobile-menu a { font-size: 1.6rem; font-weight: 600; letter-spacing: -0.02em; padding: 16px 0; border-bottom: 1px solid var(--line); }
+
+    /* ---------- HERO ---------- */
+    .hero { padding: 64px 0 36px; text-align: center; background: #fff; }
+    .hero .eyebrow { font-size: 1.1rem; color: var(--soft); }
+    .hero h1 { font-size: clamp(2.4rem, 7vw, 4.5rem); }
+    .hero .sub { font-size: clamp(1.15rem, 2.4vw, 1.5rem); color: var(--soft); font-weight: 400; margin-top: 6px; }
+    .hero-actions { display: flex; gap: 26px; justify-content: center; align-items: center; margin-top: 18px; font-size: 1.08rem; }
+    .hero-actions .btn-blue { font-size: 1.02rem; padding: 11px 22px; }
+    .hero-stage { margin-top: 36px; }
+    .hero-stage img { max-width: 420px; margin: 0 auto; width: 72%; }
+
+    /* ---------- QUICK NAV ---------- */
+    .quicknav { background: #fff; padding: 6px 0 46px; }
+    .quicknav .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .qn-card { background: var(--paper); border-radius: 20px; padding: 26px 20px; text-align: center; transition: transform .2s ease; }
+    .qn-card:hover { transform: translateY(-3px); }
+    .qn-card svg { margin: 0 auto 14px; color: var(--ink); }
+    .qn-card h3 { font-size: 1.05rem; margin-bottom: 4px; }
+    .qn-card p { font-size: .82rem; color: var(--soft); }
+
+    /* ---------- SECTION FRAME (apple-like full width beats) ---------- */
+    .beat { padding: 86px 0; text-align: center; }
+    .beat.on-paper { background: var(--paper); }
+    .beat.on-black { background: #000; color: #fff; }
+    .beat.on-black .sub { color: rgba(255,255,255,.78); }
+    .beat-head h2 { font-size: clamp(2rem, 5vw, 3.1rem); }
+    .beat-head .sub { font-size: clamp(1.05rem, 2vw, 1.3rem); color: var(--soft); font-weight: 400; margin-top: 8px; }
+    .beat-actions { display: flex; gap: 24px; justify-content: center; margin-top: 16px; font-size: 1.02rem; }
+    .beat-actions .btn { font-size: .95rem; padding: 10px 20px; }
+    .beat-img { margin-top: 40px; }
+    .beat-img img { max-width: 620px; width: 88%; margin: 0 auto; border-radius: 18px; }
+
+    /* ---------- PRODUCT GRID (catálogo) ---------- */
+    .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 46px; text-align: left; }
+    .cat-card { background: #fff; border-radius: 22px; padding: 26px 22px 24px; display: flex; flex-direction: column; transition: box-shadow .25s ease, transform .25s ease; }
+    .cat-card:hover { box-shadow: 0 20px 40px rgba(0,0,0,.08); transform: translateY(-3px); }
+    .cat-card .ph { aspect-ratio: 1/1; border-radius: 16px; overflow: hidden; background: var(--paper); margin-bottom: 18px; }
+    .cat-card .ph img { width: 100%; height: 100%; object-fit: cover; }
+    .cat-card h3 { font-size: 1.12rem; margin-bottom: 3px; }
+    .cat-card .tag { font-size: .84rem; color: var(--soft); margin-bottom: 12px; min-height: 2.4em; }
+    .cat-card .price { font-size: .96rem; font-weight: 600; margin-bottom: 4px; }
+    .cat-card .price span { font-weight: 400; color: var(--soft); font-size: .82rem; display: block; margin-top: 1px; }
+    .cat-card .cat-actions { margin-top: auto; padding-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+    .cat-card .btn { width: 100%; font-size: .88rem; padding: 9px 16px; }
+    .cat-card .link { font-size: .88rem; justify-content: center; }
+
+    /* ---------- ACCESORIOS (grid más chico) ---------- */
+    .acc-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 46px; text-align: left; }
+    .acc-card { background: var(--paper); border-radius: 20px; padding: 20px 18px; display: flex; flex-direction: column; transition: transform .2s ease; }
+    .acc-card:hover { transform: translateY(-3px); }
+    .acc-card .ph { aspect-ratio: 1/1; border-radius: 14px; overflow: hidden; background: #fff; margin-bottom: 14px; }
+    .acc-card .ph img { width: 100%; height: 100%; object-fit: cover; }
+    .acc-card h3 { font-size: .96rem; margin-bottom: 2px; }
+    .acc-card .tag { font-size: .76rem; color: var(--soft); margin-bottom: 10px; min-height: 2.2em; }
+    .acc-card .price { font-size: .88rem; font-weight: 600; margin-bottom: 12px; }
+    .acc-card .btn { width: 100%; font-size: .78rem; padding: 8px 12px; margin-top: auto; }
+
+    /* ---------- CONFIANZA STRIP ---------- */
+    .trust { background: #fff; padding: 70px 0; border-top: 1px solid var(--line); }
+    .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
+    .trust-item svg { margin: 0 auto 16px; color: var(--ink); }
+    .trust-item h4 { font-size: 1rem; margin-bottom: 6px; }
+    .trust-item p { font-size: .84rem; color: var(--soft); }
+
+    /* ---------- CONTACTO ---------- */
+    .contact { background: var(--paper); padding: 90px 0; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .contact-info h2 { font-size: clamp(2rem, 4vw, 2.6rem); }
+    .contact-info .sub { color: var(--soft); font-size: 1.08rem; margin-top: 10px; }
+    .contact-rows { margin-top: 32px; display: grid; gap: 2px; }
+    .c-row { display: flex; gap: 15px; padding: 16px 0; border-top: 1px solid var(--line); }
+    .c-row:last-child { border-bottom: 1px solid var(--line); }
+    .c-row svg { color: var(--ink); flex-shrink: 0; margin-top: 2px; }
+    .c-row small { display: block; font-size: .78rem; color: var(--soft); margin-bottom: 2px; }
+    .c-row span, .c-row a { font-size: 1.02rem; font-weight: 500; }
+    .contact-panel { background: #fff; border-radius: 24px; padding: 36px 32px; }
+    .contact-panel h3 { font-size: 1.4rem; margin-bottom: 8px; }
+    .contact-panel p { color: var(--soft); font-size: .96rem; margin-bottom: 24px; }
+    .contact-panel .btn { width: 100%; padding: 13px; font-size: 1rem; }
+    .contact-panel .note { font-size: .8rem; color: var(--faint); margin-top: 16px; margin-bottom: 0; text-align: center; }
+
+    /* ---------- FOOTER ---------- */
+    footer { background: var(--paper); border-top: 1px solid var(--line); padding: 28px 0; }
+    .foot-legal { font-size: .72rem; color: var(--faint); line-height: 1.6; border-bottom: 1px solid var(--line); padding-bottom: 18px; margin-bottom: 16px; }
+    .foot-legal b { color: var(--soft); }
+    .foot-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: .72rem; color: var(--faint); }
+    .foot-bottom a { color: var(--faint); }
+    .foot-bottom a:hover { text-decoration: underline; }
+
+    .wa-float { position: fixed; bottom: 22px; right: 22px; z-index: 300; width: 54px; height: 54px; border-radius: 50%; background: #25D366; color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 26px rgba(0,0,0,.25); }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 980px) {
+        .quicknav .wrap, .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+        .cat-grid { grid-template-columns: repeat(2, 1fr); }
+        .acc-grid { grid-template-columns: repeat(3, 1fr); }
+        .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+        .nav-links { display: none; }
+        .burger { display: block; }
+    }
+    @media (max-width: 640px) {
+        .wrap { padding: 0 20px; }
+        .hero { padding: 44px 0 30px; }
+        .hero-actions { gap: 18px; flex-wrap: wrap; }
+        .beat { padding: 60px 0; }
+        .cat-grid, .acc-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+        .cat-card { padding: 18px 16px 16px; border-radius: 18px; }
+        .trust-grid { grid-template-columns: 1fr; gap: 26px; }
+        .contact { padding: 60px 0; }
+        .contact-panel { padding: 28px 24px; }
+        .foot-bottom { flex-direction: column; }
+    }
+    @media (max-width: 420px) {
+        .acc-grid { grid-template-columns: 1fr 1fr; }
+    }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+    <nav class="wrap">
+        <a href="#inicio" class="logo">NOVA</a>
+        <div class="nav-links" id="navLinks">
+            <a href="#iphone">iPhone</a>
+            <a href="#mac">Mac</a>
+            <a href="#accesorios">Accesorios</a>
+            <a href="#contacto">Contacto</a>
+            <a href="https://wa.me/5493704300400?text=Hola%20NOVA%2C%20quiero%20hacer%20una%20consulta" target="_blank" class="nav-cta">Comprar</a>
+        </div>
+        <button class="burger" id="burgerBtn" aria-label="Abrir menú"><span></span><span></span></button>
+    </nav>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#iphone">iPhone</a>
+    <a href="#mac">Mac</a>
+    <a href="#accesorios">Accesorios</a>
+    <a href="#contacto">Contacto</a>
+</div>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="inicio">
+    <div class="wrap">
+        <p class="eyebrow">NOVA</p>
+        <h1>iPhone 18 Pro</h1>
+        <p class="sub">Lo nuevo. Ya disponible.</p>
+        <div class="hero-actions">
+            <a href="#iphone" class="link">Más información</a>
+            <a href="https://wa.me/5493704300400?text=Hola%20NOVA%2C%20quiero%20comprar%20el%20iPhone%2018%20Pro" target="_blank" class="btn btn-blue">Comprar</a>
+        </div>
+        <div class="hero-stage">
+            <img src="img/iphone-18-pro.jpg" alt="iPhone 18 Pro en color burgundy" width="900" height="900">
+        </div>
+    </div>
+</section>
+
+<!-- QUICK NAV -->
+<section class="quicknav">
+    <div class="wrap">
+        <a href="#iphone" class="qn-card"><span data-icon="iphone" data-size="30"></span><h3>iPhone</h3><p>Desde USD 799</p></a>
+        <a href="#mac" class="qn-card"><span data-icon="mac" data-size="30"></span><h3>Mac</h3><p>Desde USD 1.099</p></a>
+        <a href="#accesorios" class="qn-card"><span data-icon="airpods" data-size="30"></span><h3>AirPods</h3><p>Desde USD 249</p></a>
+        <a href="#accesorios" class="qn-card"><span data-icon="plug" data-size="30"></span><h3>Accesorios</h3><p>Cables y cargadores</p></a>
+    </div>
+</section>
+
+<!-- IPHONE -->
+<section class="beat on-paper" id="iphone">
+    <div class="wrap">
+        <div class="beat-head">
+            <p class="eyebrow">iPhone</p>
+            <h2>Elegí tu iPhone.</h2>
+            <p class="sub">Cuatro modelos, todos originales y con garantía.</p>
+        </div>
+
+        <div class="cat-grid">
+            <article class="cat-card">
+                <div class="ph"><img src="img/iphone-18-pro.jpg" alt="iPhone 18 Pro" loading="lazy"></div>
+                <h3>iPhone 18 Pro</h3>
+                <p class="tag">El más potente. Chip A20 Pro y cámara Pro.</p>
+                <div class="price">Desde USD 1.199<span>Precio final en pesos: consultar</span></div>
+                <div class="cat-actions">
+                    <a class="btn btn-blue" href="https://wa.me/5493704300400?text=Hola%20NOVA%2C%20quiero%20comprar%20el%20iPhone%2018%20Pro" target="_blank" rel="noopener">Comprar</a>
+                </div>
+            </article>
+            <article class="cat-card">
+                <div class="ph"><img src="img/iphone-air.jpg" alt="iPhone Air" loading="lazy"></div>
+                <h3>iPhone Air</h3>
+                <p class="tag">El más delgado que hicimos.</p>
+                <div class="price">Desde USD 1.099<span>Precio final en pesos: consultar</span></div>
+                <div class="cat-actions">
+                    <a class="btn btn-blue" href="https://wa.me/5493704300400?text=Hola%20NOVA%2C%20quiero%20comprar%20el%20iPhone%20Air" target="_blank" rel="noopener">Comprar</a>
+                </div>
+            </article>
+            <article class="cat-card">
+                <div class="ph"><img src="img/iphone-17.jpg" alt="iPhone 17" loading="lazy"></div>
+                <h3>iPhone 17</h3>
+                <p class="tag">Gran pantalla, gran batería.</p>
+                <div class="price">Desde USD 899<span>Precio final en pesos: consultar</span></div>
+                <div class="cat-actions">
+                    <a class="btn btn-blue" href="https://wa.me/5493704300400?text=Hola%20NOVA%2C%20quiero%20comprar%20el%20iPhone%2017" target="_blank" rel="noopener">Comprar</a>
+                </div>
+            </article>
+            <article class="cat-card">
+                <div class="ph"><img src="img/iphone-16.jpg" alt="iPhone 16" loading="lazy"></div>
+                <h3>iPhone 16</h3>
+                <p class="tag">El preferido, a un precio más accesible.</p>
+                <div class="price">Desde USD 799<span>Precio final en pesos: consultar</span></div>
+                <div class="cat-actions">
+                    <a class="btn btn-blue" href="https://wa.me/5493704300400?text=Hola%20NOVA%2C%20quiero%20comprar%20el%20iPhone%2016" target="_blank" rel="noopener">Comprar</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- MAC -->
+<section class="beat on-black" id="mac">
+    <div class="wrap">
+        <div class="beat-head">
+            <p class="eyebrow on-dark">MacBook Air</p>
+            <h2>Súper liviana.<br>Súper rápida.</h2>
+            <p class="sub">Con el chip M5. Desde USD 1.099.</p>
+            <div class="beat-actions">
+                <a href="https://wa.me/5493704300400?text=Hola%20NOVA%2C%20quiero%20comprar%20una%20MacBook%20Air" target="_blank" class="btn btn-outline-dark">Comprar</a>
+            </div>
+        </div>
+        <div class="beat-img"><img src="img/macbook-air.jpg" alt="MacBook Air abierta, vista desde arriba y desde abajo"></div>
+    </div>
+</section>
+
+<section class="beat" style="background:#f5f5f7">
+    <div class="wrap">
+        <div class="beat-head">
+            <p class="eyebrow">MacBook Pro</p>
+            <h2>Potencia para<br>trabajo profesional.</h2>
+            <p class="sub">Chip M5. Desde USD 1.999.</p>
+            <div class="beat-actions">
+                <a href="https://wa.me/5493704300400?text=Hola%20NOVA%2C%20quiero%20comprar%20una%20MacBook%20Pro" target="_blank" class="btn btn-blue">Comprar</a>
+            </div>
+        </div>
+        <div class="beat-img"><img src="img/macbook-pro.jpg" alt="MacBook Pro en Space Black, abierta"></div>
+    </div>
+</section>
+
+<!-- ACCESORIOS -->
+<section class="beat" id="accesorios" style="padding-bottom:40px">
+    <div class="wrap">
+        <div class="beat-head">
+            <p class="eyebrow">AirPods y accesorios</p>
+            <h2>Todo para tu iPhone.</h2>
+            <p class="sub">AirPods, cargadores, cables y fundas originales.</p>
+        </div>
+
+        <div class="acc-grid">
+            <article class="acc-card">
+                <div class="ph"><img src="img/airpods-pro.jpg" alt="AirPods Pro 3" loading="lazy"></div>
+                <h3>AirPods Pro 3</h3>
+                <p class="tag">Cancelación de ruido y audio adaptativo.</p>
+                <div class="price">USD 249</div>
+                <a class="btn btn-outline-light" href="https://wa.me/5493704300400?text=Hola%20NOVA%2C%20quiero%20comprar%20los%20AirPods%20Pro%203" target="_blank" rel="noopener">Comprar</a>
+            </article>
+            <article class="acc-card">
+                <div class="ph"><img src="img/magsafe-charger.jpg" alt="Cargador MagSafe" loading="lazy"></div>
+                <h3>Cargador MagSafe</h3>
+                <p class="tag">Carga inalámbrica rápida y prolija.</p>
+                <div class="price">USD 39</div>
+                <a class="btn btn-outline-light" href="https://wa.me/5493704300400?text=Hola%20NOVA%2C%20quiero%20comprar%20un%20Cargador%20MagSafe" target="_blank" rel="noopener">Comprar</a>
+            </article>
+            <article class="acc-card">
+                <div class="ph"><img src="img/power-adapter.jpg" alt="Adaptador de corriente USB-C 20W" loading="lazy"></div>
+                <h3>Adaptador 20W</h3>
+                <p class="tag">Carga rápida por USB-C.</p>
+                <div class="price">USD 19</div>
+                <a class="btn btn-outline-light" href="https://wa.me/5493704300400?text=Hola%20NOVA%2C%20quiero%20comprar%20un%20Adaptador%20USB-C%2020W" target="_blank" rel="noopener">Comprar</a>
+            </article>
+            <article class="acc-card">
+                <div class="ph"><img src="img/usb-cable.jpg" alt="Cable USB-C a USB-C de 1 metro" loading="lazy"></div>
+                <h3>Cable USB-C (1m)</h3>
+                <p class="tag">Para cargar y transferir datos.</p>
+                <div class="price">USD 19</div>
+                <a class="btn btn-outline-light" href="https://wa.me/5493704300400?text=Hola%20NOVA%2C%20quiero%20comprar%20un%20Cable%20USB-C" target="_blank" rel="noopener">Comprar</a>
+            </article>
+            <article class="acc-card">
+                <div class="ph"><img src="img/case-clear.jpg" alt="Funda transparente con MagSafe" loading="lazy"></div>
+                <h3>Funda transparente</h3>
+                <p class="tag">Con MagSafe, se ve el color original.</p>
+                <div class="price">USD 49</div>
+                <a class="btn btn-outline-light" href="https://wa.me/5493704300400?text=Hola%20NOVA%2C%20quiero%20comprar%20una%20Funda%20transparente%20con%20MagSafe" target="_blank" rel="noopener">Comprar</a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- CONFIANZA -->
+<section class="trust">
+    <div class="wrap">
+        <div class="trust-grid">
+            <div class="trust-item"><span data-icon="check" data-size="26"></span><h4>Productos originales</h4><p>Todo lo que vendemos es Apple genuino, con caja sellada.</p></div>
+            <div class="trust-item"><span data-icon="shield" data-size="26"></span><h4>Garantía oficial</h4><p>Garantía internacional de Apple en todos los equipos.</p></div>
+            <div class="trust-item"><span data-icon="store" data-size="26"></span><h4>Entrega en Formosa</h4><p>Retiro en el local o envío a todo Formosa Capital.</p></div>
+            <div class="trust-item"><span data-icon="chat" data-size="26"></span><h4>Asesoramiento real</h4><p>Te ayudamos a elegir el equipo que necesitás, sin apuro.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact" id="contacto">
+    <div class="wrap contact-grid">
+        <div class="contact-info">
+            <p class="eyebrow">Contacto</p>
+            <h2>Hablemos.</h2>
+            <p class="sub">Contanos qué estás buscando y te confirmamos precio y disponibilidad.</p>
+            <div class="contact-rows">
+                <div class="c-row"><span data-icon="pin" data-size="20"></span><div><small>Dirección</small><span>Av. 25 de Mayo 1455, Formosa Capital, Argentina</span></div></div>
+                <div class="c-row"><span data-icon="whatsapp" data-size="20"></span><div><small>WhatsApp</small><a href="https://wa.me/5493704300400" target="_blank">+54 9 3704 30-0400</a></div></div>
+            </div>
+        </div>
+        <div class="contact-panel">
+            <h3>¿Ya sabés qué querés?</h3>
+            <p>Escribinos el modelo por WhatsApp y te confirmamos precio en pesos, stock y forma de pago.</p>
+            <a href="https://wa.me/5493704300400?text=Hola%20NOVA%2C%20quiero%20hacer%20una%20consulta" target="_blank" class="btn btn-wa">Escribir por WhatsApp</a>
+            <p class="note">Pagos por transferencia o efectivo. Consultá por financiación.</p>
+        </div>
+    </div>
+</section>
+</main>
+
+<footer>
+    <div class="wrap">
+        <p class="foot-legal"><b>NOVA</b> es una tienda independiente en Formosa, Argentina, revendedora de productos Apple originales. No es Apple Inc. ni un Apple Store oficial. Apple, iPhone, Mac, MacBook, AirPods y MagSafe son marcas registradas de Apple Inc., usadas aquí solo para identificar los productos que se venden.</p>
+        <div class="foot-bottom">
+            <span>© 2026 NOVA · Formosa, Argentina.</span>
+            <span><a href="https://wa.me/5493704300400" target="_blank">WhatsApp</a></span>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/5493704300400?text=Hola%20NOVA%2C%20quiero%20hacer%20una%20consulta" class="wa-float" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp"><span data-icon="whatsapp" data-size="26"></span></a>
+
+<script>
+/* =========================================================
+   ÍCONOS
+   ========================================================= */
+const ICONS = {
+    iphone: '<rect x="6" y="2" width="12" height="20" rx="3"/><line x1="10" y1="19" x2="14" y2="19"/>',
+    mac: '<rect x="3" y="4" width="18" height="12" rx="1.5"/><line x1="2" y1="19.5" x2="22" y2="19.5"/><line x1="9" y1="19.5" x2="9" y2="16" /><line x1="15" y1="19.5" x2="15" y2="16" />',
+    airpods: '<path d="M8 3c2 0 3 1.4 3 3.6v8.8c0 2.2-1 3.6-3 3.6S5 17.6 5 15.4V7.8C5 6.3 5.6 5 7 4.2"/><path d="M16 3c-2 0-3 1.4-3 3.6v8.8c0 2.2 1 3.6 3 3.6s3-1.4 3-3.6V7.8c0-1.5-.6-2.8-2-3.6"/>',
+    plug: '<path d="M9 2v6"/><path d="M15 2v6"/><path d="M6 8h12v4a6 6 0 0 1-12 0V8z"/><path d="M12 18v4"/>',
+    check: '<circle cx="12" cy="12" r="10"/><polyline points="8 12.5 11 15.5 16 9"/>',
+    shield: '<path d="M12 2l8 3.5v6c0 5-3.4 8.7-8 10.5-4.6-1.8-8-5.5-8-10.5v-6L12 2z"/>',
+    store: '<path d="M3 9l1.5-5h15L21 9"/><path d="M4 9h16v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9z"/><path d="M9 20v-6h6v6"/>',
+    chat: '<path d="M21 11.5a8.5 8.5 0 0 1-9 8.48 8.6 8.6 0 0 1-3.5-.73L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"/>',
+    pin: '<circle cx="12" cy="10" r="3"/><path d="M12 21s7-6.5 7-11A7 7 0 0 0 5 10c0 4.5 7 11 7 11z"/>',
+};
+const WA_PATH = '<path fill="currentColor" stroke="none" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path fill="currentColor" stroke="none" d="M12 0C5.373 0 0 5.373 0 12c0 2.115.553 4.1 1.522 5.83L.057 23.18a.75.75 0 0 0 .917.913l5.232-1.44A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.676-.5-5.21-1.375l-.373-.213-3.865 1.063 1.088-3.773-.234-.389A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>';
+
+function svg(name, size = 24, sw = 1.6) {
+    const body = name === 'whatsapp' ? WA_PATH : ICONS[name];
+    return `<svg viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" stroke="currentColor" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${body}</svg>`;
+}
+document.querySelectorAll('[data-icon]').forEach(el => { el.innerHTML = svg(el.dataset.icon, Number(el.dataset.size) || 24, el.dataset.icon === 'check' ? 2 : 1.5); });
+
+/* =========================================================
+   NAV + MENÚ MÓVIL
+   ========================================================= */
+const burger = document.getElementById('burgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+function setMenu(open) {
+    mobileMenu.classList.toggle('open', open);
+    burger.classList.toggle('active', open);
+    burger.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+}
+burger.addEventListener('click', () => setMenu(!mobileMenu.classList.contains('open')));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+</script>
+</body>
+</html>
