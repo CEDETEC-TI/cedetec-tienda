@@ -47,6 +47,7 @@
     .link:hover { color: var(--blue-dark); }
 
     .btn { display: inline-flex; align-items: center; justify-content: center; padding: 11px 20px; border-radius: 980px; font-size: 0.98rem; font-weight: 400; cursor: pointer; border: 1px solid transparent; transition: all .2s ease; }
+    .btn[hidden] { display: none; }
     .btn-blue { background: var(--blue); color: #fff; }
     .btn-blue:hover { background: var(--blue-dark); }
     .btn-wa { background: #25D366; color: #fff; }
@@ -266,6 +267,9 @@
 
         <div class="cat-grid" id="iphoneGrid"></div>
         <p class="no-results" id="noResults" hidden>No encontramos ningún modelo con ese nombre. Probá con otra palabra o <a href="https://wa.me/543704700739?text=Hola%20CEDETEC%2C%20busco%20un%20modelo%20de%20iPhone%20que%20no%20veo%20en%20la%20p%C3%A1gina" target="_blank" rel="noopener">consultanos por WhatsApp</a>.</p>
+        <div style="text-align:center">
+            <button class="btn btn-outline-light" id="showMoreBtn" style="margin-top:30px">Ver 8 modelos más</button>
+        </div>
         <p class="note" style="margin-top:28px; font-size:.84rem; color:var(--faint)">"Usado" significa que el equipo funciona perfecto pero puede tener alguna pieza reemplazada (pantalla, tapa o batería) durante una reparación anterior. Te lo aclaramos siempre antes de la compra.</p>
     </div>
 </section>
@@ -370,7 +374,7 @@
             <div class="contact-rows">
                 <div class="c-row"><span data-icon="whatsapp" data-size="20"></span><div><small>WhatsApp</small><a href="https://wa.me/543704700739" target="_blank">+54 370 470-0739</a></div></div>
                 <div class="c-row"><span data-icon="instagram" data-size="20"></span><div><small>Instagram</small><a href="https://www.instagram.com/cedetec.comm/" target="_blank">@cedetec.comm</a></div></div>
-                <div class="c-row"><span data-icon="tiktok" data-size="20"></span><div><small>TikTok</small><a href="https://www.tiktok.com/@guilleba_" target="_blank">@guilleba_</a></div></div>
+                <div class="c-row"><span data-icon="tiktok" data-size="20"></span><div><small>TikTok</small><a href="https://www.tiktok.com/@cedetec_" target="_blank">@cedetec_</a></div></div>
             </div>
         </div>
         <div class="contact-panel">
@@ -388,7 +392,7 @@
         <p class="foot-legal"><b>CEDETEC</b> es una consultora informática de Formosa, Argentina, y revende productos Apple originales como revendedor independiente. No es Apple Inc. ni un Apple Store oficial. Apple, iPhone, Mac, MacBook, AirPods y MagSafe son marcas registradas de Apple Inc., usadas aquí solo para identificar los productos que se venden.</p>
         <div class="foot-bottom">
             <span>© 2026 CEDETEC · Formosa, Argentina.</span>
-            <span><a href="https://wa.me/543704700739" target="_blank">WhatsApp</a> · <a href="https://www.instagram.com/cedetec.comm/" target="_blank">Instagram</a> · <a href="https://www.tiktok.com/@guilleba_" target="_blank">TikTok</a></span>
+            <span><a href="https://wa.me/543704700739" target="_blank">WhatsApp</a> · <a href="https://www.instagram.com/cedetec.comm/" target="_blank">Instagram</a> · <a href="https://www.tiktok.com/@cedetec_" target="_blank">TikTok</a></span>
         </div>
     </div>
 </footer>
@@ -560,20 +564,46 @@ function renderIphones(list) {
 
 function normalize(s) { return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
 
+// Con 97 modelos, mostramos de a poco: arranca con PAGE_SIZE y "Ver más" va
+// sumando de a PAGE_SIZE. Al buscar, se muestran todos los resultados que
+// coincidan (ahí no tiene sentido limitar).
+const PAGE_SIZE = 8;
+let visibleCount = PAGE_SIZE;
+const showMoreBtn = document.getElementById('showMoreBtn');
 const searchInput = document.getElementById('iphoneSearch');
-searchInput.addEventListener('input', () => {
-    const q = normalize(searchInput.value.trim());
-    if (!q) { renderIphones(IPHONES); return; }
-    const words = q.split(/\s+/).filter(Boolean);
-    const filtered = IPHONES.filter(p => {
-        const synonym = p.cond === 'usado' ? 'swap' : '';
-        const haystack = normalize(`${p.model} ${p.color} ${p.storage} ${p.condLabel} ${p.cond} ${synonym}`);
-        return words.every(w => haystack.includes(w));
-    });
-    renderIphones(filtered);
-});
 
-renderIphones(IPHONES);
+function currentQuery() { return normalize(searchInput.value.trim()); }
+
+function matchesQuery(p, q) {
+    if (!q) return true;
+    const words = q.split(/\s+/).filter(Boolean);
+    const synonym = p.cond === 'usado' ? 'swap' : '';
+    const haystack = normalize(`${p.model} ${p.color} ${p.storage} ${p.condLabel} ${p.cond} ${synonym}`);
+    return words.every(w => haystack.includes(w));
+}
+
+function renderCatalog() {
+    const q = currentQuery();
+    const matches = IPHONES.filter(p => matchesQuery(p, q));
+    if (q) {
+        renderIphones(matches);
+        showMoreBtn.hidden = true;
+    } else {
+        renderIphones(matches.slice(0, visibleCount));
+        const remaining = matches.length - visibleCount;
+        if (remaining > 0) {
+            showMoreBtn.hidden = false;
+            showMoreBtn.textContent = `Ver ${Math.min(PAGE_SIZE, remaining)} modelos más`;
+        } else {
+            showMoreBtn.hidden = true;
+        }
+    }
+}
+
+searchInput.addEventListener('input', renderCatalog);
+showMoreBtn.addEventListener('click', () => { visibleCount += PAGE_SIZE; renderCatalog(); });
+
+renderCatalog();
 
 /* =========================================================
    NAV + MENÚ MÓVIL
