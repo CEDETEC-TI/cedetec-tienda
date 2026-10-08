@@ -18,4 +18,4 @@ Sitio estático de un solo archivo (`index.html`, sin dependencias de build ni b
 
 ## Deploy
 
-Al ser HTML estático, se puede publicar directo en GitHub Pages, Netlify o Vercel apuntando a la raíz del repo. Publicado en https://cedetec-ti.github.io/cedetec-tienda/
+Al ser HTML estático, se puede publicar directo en GitHub Pages apuntando a la raíz del repo. Publicado en https://cedetec-ti.github.io/cedetec-tienda/
